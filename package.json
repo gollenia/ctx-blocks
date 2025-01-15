@@ -1,6 +1,6 @@
 {
 	"name": "timber-blocks",
-	"version": "1.9.1",
+	"version": "1.9.5",
 	"description": "Wordpress block library plugin to replace some standard blocks",
 	"author": "kids-team Österreich",
 	"prettier": "@wordpress/prettier-config",
