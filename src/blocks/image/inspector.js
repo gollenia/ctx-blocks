@@ -93,119 +93,111 @@ const Inspector = (props) => {
 	};
 
 	return (
-		<>
-			<InspectorControls>
-				<PanelBody
-					title={__('Design', 'ctx-blocks')}
-					initialOpen={true}
-				>
-					<RangeControl
-						label={__('Width in percent', 'ctx-blocks')}
-						value={width}
-						onChange={(value) => setAttributes({ width: value })}
-						min={0}
-						max={100}
-						step={10}
-					/>
+		<InspectorControls>
+			<PanelBody title={__('Design', 'ctx-blocks')} initialOpen={true}>
+				<RangeControl
+					label={__('Width in percent', 'ctx-blocks')}
+					value={width}
+					onChange={(value) => setAttributes({ width: value })}
+					min={0}
+					max={100}
+					step={10}
+				/>
 
-					<CheckboxControl
-						label={__('Shadow', 'ctx-blocks')}
-						checked={shadow}
-						onChange={(event) => {
-							setAttributes({ shadow: event });
-						}}
-					/>
-					<CheckboxControl
-						label={__('Flip vertical', 'ctx-blocks')}
-						checked={flipX}
-						onChange={(event) => {
-							setAttributes({ flipX: event });
-						}}
-					/>
+				<CheckboxControl
+					label={__('Shadow', 'ctx-blocks')}
+					checked={shadow}
+					onChange={(event) => {
+						setAttributes({ shadow: event });
+					}}
+				/>
+				<CheckboxControl
+					label={__('Flip vertical', 'ctx-blocks')}
+					checked={flipX}
+					onChange={(event) => {
+						setAttributes({ flipX: event });
+					}}
+				/>
 
-					<CheckboxControl
-						label={__('Flip horizontal', 'ctx-blocks')}
-						checked={flipY}
-						onChange={(event) => {
-							setAttributes({ flipY: event });
-						}}
-					/>
+				<CheckboxControl
+					label={__('Flip horizontal', 'ctx-blocks')}
+					checked={flipY}
+					onChange={(event) => {
+						setAttributes({ flipY: event });
+					}}
+				/>
 
-					<AnglePickerControl
-						label={__('Rotate', 'ctx-blocks')}
-						value={rotate}
-						onChange={(event) => {
-							setAttributes({ rotate: event });
-						}}
-					/>
+				<AnglePickerControl
+					label={__('Rotate', 'ctx-blocks')}
+					value={rotate}
+					onChange={(event) => {
+						setAttributes({ rotate: event });
+					}}
+				/>
 
-					<SelectControl
-						label={__('Image size', 'ctx-blocks')}
-						value={imageSize}
-						options={imageSizes}
-						onChange={(event) => {
-							setImageSize(event);
-						}}
-					/>
+				<SelectControl
+					label={__('Image size', 'ctx-blocks')}
+					value={imageSize}
+					options={imageSizes}
+					onChange={(event) => {
+						setImageSize(event);
+					}}
+				/>
 
-					<SelectControl
-						label={__('Aspect Ratio', 'ctx-blocks')}
-						value={aspectRatio}
-						options={[
-							{
-								label: __('Original', 'ctx-blocks'),
-								value: '',
-							},
-							{
-								label: __('16:9 (Wide)', 'ctx-blocks'),
-								value: '16/9',
-							},
-							{
-								label: __('1:1 (Portrait)', 'ctx-blocks'),
-								value: '1/1',
-							},
-							{
-								label: __('21:9 (Extra Wide)', 'ctx-blocks'),
-								value: '21/9',
-							},
-							{
-								label: __('9:16 (Upright)', 'ctx-blocks'),
-								value: '9/16',
-							},
-						]}
-						onChange={(event) => {
-							setAttributes({ aspectRatio: event });
-						}}
-					/>
+				<SelectControl
+					label={__('Aspect Ratio', 'ctx-blocks')}
+					value={aspectRatio}
+					options={[
+						{
+							label: __('Original', 'ctx-blocks'),
+							value: '',
+						},
+						{
+							label: __('16:9 (Wide)', 'ctx-blocks'),
+							value: '16/9',
+						},
+						{
+							label: __('1:1 (Portrait)', 'ctx-blocks'),
+							value: '1/1',
+						},
+						{
+							label: __('21:9 (Extra Wide)', 'ctx-blocks'),
+							value: '21/9',
+						},
+						{
+							label: __('9:16 (Upright)', 'ctx-blocks'),
+							value: '9/16',
+						},
+					]}
+					onChange={(event) => {
+						setAttributes({ aspectRatio: event });
+					}}
+				/>
 
-					<FocalPointPicker
-						__nextHasNoMarginBottom
-						label={__('Focal point picker')}
-						url={imageUrl}
-						value={focalPoint}
-						onDragStart={imperativeFocalPointPreview}
-						onDrag={imperativeFocalPointPreview}
-						onChange={(newFocalPoint) =>
-							setAttributes({
-								focalPoint: newFocalPoint,
-							})
-						}
-					/>
-				</PanelBody>
-				<PanelBody
-					title={__('Behaviour', 'ctx-blocks')}
-					initialOpen={true}
-				>
-					<CheckboxControl
-						label={__('Zoom in on hover', 'ctx-blocks')}
-						checked={hoverZoom}
-						onChange={(event) => {
-							setAttributes({ hoverZoom: event });
-						}}
-					/>
-				</PanelBody>
-			</InspectorControls>
-		</>
+				<FocalPointPicker
+					__nextHasNoMarginBottom
+					label={__('Focal point picker')}
+					url={imageUrl}
+					value={focalPoint}
+					onDragStart={imperativeFocalPointPreview}
+					onDrag={imperativeFocalPointPreview}
+					onChange={(newFocalPoint) =>
+						setAttributes({
+							focalPoint: newFocalPoint,
+						})
+					}
+				/>
+			</PanelBody>
+			<PanelBody title={__('Behaviour', 'ctx-blocks')} initialOpen={true}>
+				<CheckboxControl
+					label={__('Zoom in on hover', 'ctx-blocks')}
+					checked={hoverZoom}
+					onChange={(event) => {
+						setAttributes({ hoverZoom: event });
+					}}
+				/>
+			</PanelBody>
+		</InspectorControls>
 	);
 };
 
