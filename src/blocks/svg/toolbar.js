@@ -1,4 +1,5 @@
 import {
+	AlignmentToolbar,
 	BlockControls,
 	__experimentalLinkControl as LinkControl,
 	MediaReplaceFlow,
@@ -26,12 +27,43 @@ const Toolbar = (props) => {
 		linkRel,
 		href,
 		linkClass,
+		imageAlignment,
+		align,
 	} = attributes;
 
 	const [isEditingURL, setIsEditingURL] = useState(false);
 
 	return (
 		<>
+			<BlockControls>
+				{!['left', 'right'].includes(align) && (
+					<AlignmentToolbar
+						value={imageAlignment}
+						onChange={(event) =>
+							setAttributes({ imageAlignment: event })
+						}
+						label={__('Image Alignment', 'ctx-blocks')}
+						description={__('Change image alignment', 'ctx-blocks')}
+						alignmentControls={[
+							{
+								icon: 'editor-alignleft',
+								title: __('Align left', 'ctx-blocks'),
+								align: 'left',
+							},
+							{
+								icon: 'editor-aligncenter',
+								title: __('Align center', 'ctx-blocks'),
+								align: 'center',
+							},
+							{
+								icon: 'editor-alignright',
+								title: __('Align right', 'ctx-blocks'),
+								align: 'right',
+							},
+						]}
+					/>
+				)}
+			</BlockControls>
 			<BlockControls group="other">
 				<MediaReplaceFlow
 					mediaId={id}

@@ -24,9 +24,6 @@
 		align-items: center;
 	}
 
-	background-color: #000000;
-	color: #ffffff;
-
 	&.reverse > span {
 		flex-direction: row-reverse;
 	}

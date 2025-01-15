@@ -5,9 +5,31 @@ if(!file_exists($path)) {
 	return "";
 }
 
+$uid = uniqid('svg-');
+$rules = [];
+    
+// Bedingungen und zugehörige Regeln
+$styleMap = [
+	['condition' => !empty($attributes['strokeColor']), 'rule' => "stroke: {$attributes['strokeColor']} !important;"],
+	['condition' => !empty($attributes['fillColor']), 'rule' => "stroke: {$attributes['fillColor']} !important;"],
+	['condition' => !empty($attributes['strokeWidth']), 'rule' => "stroke-width: {$attributes['strokeWidth']} !important;"],
+];
+
+// Schleife durch die Stile
+foreach ($styleMap as $style) {
+	if ($style['condition']) {
+		$rules[] = $style['rule'];
+	}
+}
+
+// Zusammenfügen der CSS-Regeln
+$css = "#svg-{$id} svg path {" . implode(' ', $rules) . "}";
+
+$unit = $attributes['sizeInPercent'] ? '%' : 'px';
+
 $tag = $attributes['linkUrl'] ? 'a' : 'div';
-$style = "width: {$attributes['width']}px; height: {$attributes['height']}px;";
-$block_attributes = get_block_wrapper_attributes(['class' => 'ctx-svg-wrapper', 'style' => $style]);
+$style = "width: {$attributes['width']}{$unit}; height: {$attributes['height']}{$unit}; display: flex; justify-content: {$attributes['imageAlignment']};";
+$block_attributes = get_block_wrapper_attributes(['class' => 'ctx-svg-wrapper ' . $uid, 'style' => $style]);
 
 ?>
 
@@ -17,10 +39,10 @@ $block_attributes = get_block_wrapper_attributes(['class' => 'ctx-svg-wrapper', 
 <div <?php echo $block_attributes; ?>>
 <?php endif; ?>
 	<style>
-		.ctx-svg-wrapper svg path {
+		.<?php echo $uid; ?> svg path {
 			fill: <?php echo $attributes['fillColor'] ?>;
 			stroke: <?php echo $attributes['strokeColor'] ?>;
 		}
 	</style>
-	<?php echo file_get_contents($path); ?>
+	<div><?php echo file_get_contents($path); ?></div>
 <?php echo $attributes['linkUrl'] ? "</a>" : "</div>";

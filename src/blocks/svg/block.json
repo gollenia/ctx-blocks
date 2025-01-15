@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"name": "ctx-blocks/svg",
-	"title": "Inline SVG",
+	"title": "Vector Graphic",
 	"category": "widgets",
 	"keywords": ["navigation", "logo", "menu", "claim"],
 	"textdomain": "ctx-blocks",
-	"description": "Inject an SVG file into the page.",
+	"description": "Instead of an image tag, this block includes a vector graphic directly into HTML. This allowes better scaling and styling.",
 	"attributes": {
 		"url": {
 			"type": "string",
@@ -23,6 +23,14 @@
 		"height": {
 			"type": "number",
 			"default": 500
+		},
+		"syncHeight": {
+			"type": "boolean",
+			"default": false
+		},
+		"sizeInPercent": {
+			"type": "boolean",
+			"default": false
 		},
 		"fillColor": {
 			"type": "string",
@@ -55,11 +63,19 @@
 		"title": {
 			"type": "string",
 			"default": ""
+		},
+		"imageAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"style": {
+			"type": "object",
+			"default": {}
 		}
 	},
 	"supports": {
 		"anchor": true,
-		"align": ["wide", "full"],
+		"align": ["wide", "full", "left", "center", "right"],
 		"html": false,
 		"spacing": {
 			"padding": true,

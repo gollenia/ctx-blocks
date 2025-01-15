@@ -10,7 +10,7 @@
 	"attributes": {
 		"accentColor": {
 			"type": "string",
-			"default": ""
+			"default": "var(--wp--preset--color--primary)"
 		},
 		"customAccentColor": {
 			"type": "string",
@@ -66,6 +66,16 @@
 		"fullHeight": {
 			"type": "boolean",
 			"default": false
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"background": "var(--wp--preset--color--white)",
+					"text": "var(--wp--preset--color--text)",
+					"accentColor": "var(--wp--preset--color--primary)"
+				}
+			}
 		}
 	},
 	"usesContext": ["postId", "postType"],

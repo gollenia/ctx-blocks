@@ -1,12 +1,20 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import { ResizableBox } from '@wordpress/components';
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect, useMemo, useState } from '@wordpress/element';
 import Inspector from './inspector';
 import Toolbar from './toolbar';
 
 const Edit = (props) => {
 	const {
-		attributes: { url, id, width, height, strokeWidth },
+		attributes: {
+			url,
+			id,
+			width,
+			height,
+			syncHeight,
+			strokeWidth,
+			imageAlignment,
+			sizeInPercent,
+		},
 		setAttributes,
 		toggleSelection,
 		strokeColor,
@@ -23,7 +31,6 @@ const Edit = (props) => {
 			});
 			return;
 		}
-		
 
 		setAttributes({
 			url: media.sizes?.large?.url ?? media.url,
@@ -43,60 +50,47 @@ const Edit = (props) => {
 			});
 	}, [url]);
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({
+		className: 'ctx-svg',
+		style: { justifyContent: imageAlignment },
+	});
 
 	const svgStyle = {
-		width: width + 'px',
-		height: height + 'px',
+		width: width + (sizeInPercent ? '%' : 'px'),
+		height: height + (sizeInPercent ? '%' : 'px'),
+		justifySelf: 'center',
 	};
+
+	const getInlineStyle = () => {
+		const styles = [
+			strokeColor.color && `stroke: ${strokeColor.color} !important;`,
+			fillColor.color && `fill: ${fillColor.color} !important;`,
+			strokeWidth && `stroke-width: ${strokeWidth} !important;`,
+		].filter(Boolean);
+
+		return `#svg-${id} svg path { ${styles.join(' ')} }`;
+	};
+
+	const inlineStyle = useMemo(
+		() => getInlineStyle(),
+		[strokeColor, fillColor, strokeWidth]
+	);
 
 	return (
 		<>
 			<Inspector {...props} />
 			<Toolbar {...props} onSelectMedia={onSelectMedia} />
-			<style scoped>
-				{`
-					#svg-${id} svg path {
-						stroke: ${strokeColor.color};
-						fill: ${fillColor.color};
-						stroke-width: ${strokeWidth};
-					}
-				`}
-			</style>
+			<style scoped>{inlineStyle}</style>
 			<figure {...blockProps}>
 				{svgData && (
-					<ResizableBox
-						minWidth={16}
-						minHeight={16}
-						size={{
-							width,
-							height,
+					<div
+						className="ctx-svg-container"
+						id={'svg-' + id}
+						style={svgStyle}
+						dangerouslySetInnerHTML={{
+							__html: svgData,
 						}}
-						onResizeStart={() => {
-							toggleSelection(false);
-						}}
-						onResizeStop={(event, direction, elt, delta) => {
-							setAttributes({
-								width: width + delta.width,
-								height: height + delta.height,
-							});
-							toggleSelection(true);
-						}}
-						enable={{
-							top: false,
-							right: true,
-							bottom: true,
-							left: false,
-						}}
-					>
-						<div
-							id={'svg-' + id}
-							style={svgStyle}
-							dangerouslySetInnerHTML={{
-								__html: svgData,
-							}}
-						/>
-					</ResizableBox>
+					/>
 				)}
 			</figure>
 		</>

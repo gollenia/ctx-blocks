@@ -61,16 +61,21 @@
 			"default": {
 				"spacing": {
 					"padding": {
-						"top": "0.6rem",
-						"right": "1rem",
-						"bottom": "0.6rem",
-						"left": "1rem"
+						"top": "var:preset|spacing|30",
+						"right": "var:preset|spacing|40",
+						"bottom": "var:preset|spacing|30",
+						"left": "var:preset|spacing|40"
 					}
+				},
+				"color": {
+					"text": "#ffffff",
+					"background": "var(--wp--preset--color--primary)",
+					"link": "#ffffff"
 				}
 			}
 		}
 	},
-	"parent": ["ctx-blocks/button-group", "core/group", "core/navigation"],
+	"parent": ["core/group", "core/navigation", "ctx-blocks/card"],
 	"supports": {
 		"anchor": true,
 		"html": false,

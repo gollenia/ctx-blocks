@@ -7,7 +7,6 @@ import { registerBlockType } from '@wordpress/blocks';
  * Blocks dependencies.
  */
 import * as button from './blocks/button';
-import * as buttonGroup from './blocks/button/button-group';
 import * as card from './blocks/card';
 import * as conditional from './blocks/conditional';
 import * as descriptionItem from './blocks/description-item';
@@ -38,10 +37,9 @@ const registerBlock = (block) => {
 	const { name, settings } = block;
 	registerBlockType(name, settings);
 };
-
+console.log('svg', inlineSvg);
 export const registerBlocks = () => {
 	[
-		buttonGroup,
 		button,
 		card,
 		descriptionList,

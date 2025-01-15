@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "ctx-blocks/image",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Image",
 	"keywords": ["list", "table"],
 	"description": "List containing items with an image or icon and a text",
