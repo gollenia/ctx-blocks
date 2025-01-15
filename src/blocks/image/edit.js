@@ -5,15 +5,12 @@ import {
 	useBlockProps,
 	__experimentalUseBorderProps as useBorderProps,
 } from '@wordpress/block-editor';
-import { Placeholder } from '@wordpress/components';
 import icon from './icon';
 import Inspector from './inspector';
 import Toolbar from './toolbar';
 
 import { useRef } from '@wordpress/element';
-import { store as noticesStore } from '@wordpress/notices';
 
-import { useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 export default function Edit({ ...props }) {
@@ -48,36 +45,6 @@ export default function Edit({ ...props }) {
 		});
 	};
 
-	const mediaPreview = !!imageUrl && (
-		<img
-			alt={__('Edit image')}
-			title={__('Edit image')}
-			className="edit-image-preview"
-			src={imageUrl}
-		/>
-	);
-
-	const { createErrorNotice } = useDispatch(noticesStore);
-
-	function onUploadError(message) {
-		createErrorNotice(message, { type: 'snackbar' });
-		setAttributes({
-			src: undefined,
-			id: undefined,
-			url: undefined,
-			blob: undefined,
-		});
-	}
-
-	function onSelectURL(newURL) {
-		if (newURL !== url) {
-			setAttributes({
-				imageUrl: newURL,
-				id: undefined,
-			});
-		}
-	}
-
 	const imageClasses = [className, round ? 'iscircle' : false]
 		.filter(Boolean)
 		.join(' ');
@@ -105,25 +72,6 @@ export default function Edit({ ...props }) {
 
 	blockProps.style.boxShadow = undefined;
 
-	const placeholder = (
-		<Placeholder
-			className={'block-editor-media-placeholder'}
-			withIllustration={true}
-			icon={icon}
-			label={__('Image')}
-			instructions={__(
-				'Upload an image file, pick one from your media library, or add one with a URL.'
-			)}
-			style={{
-				aspectRatio,
-				width,
-
-				...borderProps.style,
-			}}
-		></Placeholder>
-	);
-
-	console.log('Edit', blockProps);
 	return (
 		<>
 			<Toolbar {...props} onSelectMedia={onSelectMedia} />
@@ -148,10 +96,9 @@ export default function Edit({ ...props }) {
 					</div>
 				) : (
 					<MediaPlaceholder
+						labels={{ title: 'Image' }}
 						icon={<BlockIcon icon={icon} />}
 						onSelect={onSelectMedia}
-						placeholder={placeholder}
-						accept="image/*"
 						allowedTypes={ALLOWED_MEDIA_TYPES}
 						value={{ imageId, imageUrl }}
 					/>
