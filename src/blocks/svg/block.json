@@ -82,6 +82,11 @@
 			"margin": true
 		}
 	},
-	"parent": ["core/group", "core/navigation"],
+	"parent": [
+		"core/group",
+		"core/navigation",
+		"ctx-blocks/card",
+		"ctx-blocks/grid-column"
+	],
 	"render": "file:./render.php"
 }

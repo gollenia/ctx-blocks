@@ -23,12 +23,15 @@ const Inspector = (props) => {
 			labelText,
 			badgeText,
 			customAccentColor,
+			customHoverColor,
 			fullHeight,
 		},
 		setAttributes,
 		imageRef,
 		accentColor,
+		hoverColor,
 		setAccentColor,
+		setHoverColor,
 		clientId,
 	} = props;
 
@@ -54,6 +57,17 @@ const Inspector = (props) => {
 
 								setAttributes({
 									customAccentColor: value,
+								});
+							},
+						},
+						{
+							label: __('Hover Color', 'ctx-blocks'),
+							colorValue: hoverColor.color || customHoverColor,
+							onColorChange: (value) => {
+								setHoverColor(value);
+
+								setAttributes({
+									customHoverColor: value,
 								});
 							},
 						},

@@ -22,8 +22,9 @@ export default function CardEdit({ ...props }) {
 			layout,
 			fullHeight,
 			customAccentColor,
+			customHoverColor,
 		},
-
+		hoverColor,
 		accentColor,
 		setAttributes,
 	} = props;
@@ -38,6 +39,7 @@ export default function CardEdit({ ...props }) {
 		'core/group',
 		'ctx-blocks/image',
 		'ctx-blocks/progress',
+		'ctx-blocks/grid-row',
 		!url ? 'ctx-blocks/button' : false,
 	];
 

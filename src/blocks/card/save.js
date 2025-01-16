@@ -19,6 +19,9 @@ const CardSave = (props) => {
 		openInNewTab,
 		accentColor,
 		customAccentColor,
+		customHoverColor,
+		backgroundColor,
+		hoverColor,
 		layout,
 		fullHeight,
 		focalPoint,
@@ -32,6 +35,7 @@ const CardSave = (props) => {
 		url || hover ? 'ctx__card-hover' : false,
 		shadow ? 'ctx__card-shadow' : false,
 		imageId ? '' : 'ctx__card-no-image',
+		customHoverColor ? 'ctx__card-hover-custom' : false,
 	]
 		.filter(Boolean)
 		.join(' ');
@@ -57,6 +61,7 @@ const CardSave = (props) => {
 		...blockProps.style,
 		height: fullHeight ? '100%' : undefined,
 		padding: '0 !important',
+		'--hover-color': customHoverColor ? customHoverColor : undefined,
 		gap:
 			attributes.style?.spacing?.blockGap
 				?.replaceAll('|', '--')

@@ -16,6 +16,14 @@
 			"type": "string",
 			"default": ""
 		},
+		"hoverColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customHoverColor": {
+			"type": "string",
+			"default": ""
+		},
 		"shadow": {
 			"type": "boolean",
 			"default": true

@@ -22,6 +22,7 @@ const settings = {
 	deprecated,
 	edit: withColors({
 		accentColor: 'accentColor',
+		hoverColor: 'hoverColor',
 	})(Edit),
 	transforms,
 	save: Save,
