@@ -76,7 +76,7 @@ function ctx_block_init() {
 add_action( 'init', 'ctx_block_init' );
 
 
-
+require_once __DIR__ . '/lib/Posts.php';
 
 function ctx_blocks_load_textdomain() {
 	load_plugin_textdomain('ctx-blocks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
