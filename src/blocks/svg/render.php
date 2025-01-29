@@ -23,7 +23,7 @@ foreach ($styleMap as $style) {
 }
 
 // Zusammenfügen der CSS-Regeln
-$css = "#svg-{$id} svg path {" . implode(' ', $rules) . "}";
+$css = "#svg-{$uid} svg path {" . implode(' ', $rules) . "}";
 
 $unit = $attributes['sizeInPercent'] ? '%' : 'px';
 
