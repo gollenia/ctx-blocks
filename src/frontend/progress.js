@@ -14,8 +14,8 @@ const Progress = {
 	},
 
 	add(progressBar) {
-		window.addEventListener('scroll', this.update.bind(event, progressBar));
-		window.addEventListener('resize', this.update.bind(event, progressBar));
+		window.addEventListener('scroll', () => this.update(progressBar));
+		window.addEventListener('resize', () => this.update(progressBar));
 		this.update(progressBar);
 	},
 
@@ -34,13 +34,15 @@ const Progress = {
 		let step = 0;
 
 		let currentValueLabel = progressBar.getElementsByClassName(
-			'progress__number-injection'
+			'ctx-progress__number-injection'
 		)[0];
-		let indicator = progressBar.getElementsByClassName(
-			'progress__indicator'
+		let indicator =
+			progressBar.getElementsByClassName('ctx-progress__bar')[0];
+		let percentLabel = progressBar.getElementsByClassName(
+			'ctx-progress__percent'
 		)[0];
-		let percentLabel =
-			progressBar.getElementsByClassName('progress__label')[0];
+
+		if (!currentValueLabel || !indicator || !percentLabel) return;
 
 		let timer = setInterval(function () {
 			step++;
@@ -55,21 +57,26 @@ const Progress = {
 				clearInterval(timer);
 			}
 		}, 20);
+
+		if (step === steps) {
+			clearInterval(timer);
+			progressBar.classList.remove('ctx-progress--animating');
+		}
 	},
 
-	update(progressBar, event = false) {
+	update(progressBar) {
 		let position = progressBar.getBoundingClientRect();
 
-		let isLoaded = progressBar.classList.contains('progress--loaded');
+		let isLoaded = progressBar.classList.contains('ctx-progress--loaded');
 		if (position.top >= 0 && position.bottom <= window.innerHeight) {
 			if (!isLoaded) {
 				progressBar.style.width = '{{percent}}%';
-				progressBar.classList.add('progress--loaded');
+				progressBar.classList.add('ctx-progress--loaded');
 				Progress.animate(progressBar, 3000);
 			}
 			return;
 		}
-		progressBar.classList.remove('progress--loaded');
+		progressBar.classList.remove('ctx-progress--loaded');
 	},
 };
 

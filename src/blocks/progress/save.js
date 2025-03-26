@@ -19,9 +19,12 @@ const save = (props) => {
 	const classes = [
 		'ctx-progress',
 		className,
+		getColorClassName('background-color', colorBarBackground),
 		decimalPlaces ? 'ctx-progress--decimal' : false,
 		thousandSeparators ? 'ctx-progress--thousand-separators' : false,
-	];
+	]
+		.filter(Boolean)
+		.join(' ');
 
 	const blockProps = useBlockProps.save({ className: classes });
 
@@ -36,42 +39,42 @@ const save = (props) => {
 	);
 	const formattedMaxValue = new Intl.NumberFormat('de-DE').format(maxValue);
 
-	getColorClassName('background-color', colorBarBackground);
-	getColorClassName('background-color', colorBar);
-
 	return (
-		<div
-			id="progress"
-			data-max={maxValue}
-			data-current={currentValue}
-			data-unit={unit}
-			data-prefixed={prefixedUnit}
-		>
-			<div class="progress__legends">
-				<div style="color: {{fg.color}}" class="legend--current">
-					<div class="legend__label">{{ currentDescription }}</div>
-					<div class="legend__value">
+		<div {...blockProps} data-max={maxValue} data-current={currentValue}>
+			<div class="ctx-progress__title">
+				<div class="ctx-progress__legend">
+					<div class="ctx-progress__current-label">
+						{currentDescription}
+					</div>
+					<div class="ctx-progress__current-value">
 						{prefixedUnit ? unit : ''}{' '}
-						<span class="progress__number-injection">
+						<span class="ctx-progress__number-injection">
 							{formattedCurrentValue}
 						</span>{' '}
 						{!prefixedUnit ? unit : ''}
 					</div>
 				</div>
-				<div style="color: var(--black)" class="legend--max">
-					<div class="legend__label">{maxDescription}</div>
-					<div class="legend__value">
+				<div style="color: var(--black)" class="ctx-progress__legend">
+					<div class="ctx-progress__max-label">{maxDescription}</div>
+					<div class="ctx-progress__max-value">
 						{prefixedUnit ? unit : ''} {formattedMaxValue}{' '}
 						{!prefixedUnit ? unit : ''}
 					</div>
 				</div>
 			</div>
-			<div style="background: {{bg.color}}" class="progress__track">
+			<div
+				class={`ctx-progress__track ${getColorClassName(
+					'background-color',
+					colorBarBackground
+				)}`}
+			>
 				<div
-					style="background-color: {{fg.color}}; width: 0%;"
-					class="progress__indicator"
+					class={`ctx-progress__bar ${getColorClassName(
+						'background-color',
+						colorBar
+					)}`}
 				>
-					<span class="progress__label">{fullPercent}%</span>
+					<span class="ctx-progress__percent">{fullPercent}%</span>
 				</div>
 			</div>
 		</div>

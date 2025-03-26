@@ -1,0 +1,52 @@
+.ctx-progress {
+	&__title {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 1rem;
+	}
+
+	&__max-value {
+		text-align: right;
+		font-size: 1.5rem;
+	}
+
+	&__current-value {
+		text-align: left;
+		font-size: 1.5rem;
+	}
+
+	&__bar {
+		border-radius: 99px;
+		height: 1rem;
+		position: relative;
+	}
+
+	&__track {
+		border-radius: 99px;
+		height: 1rem;
+	}
+
+	&__percent {
+		position: absolute;
+		bottom: -2.5rem;
+
+		background-color: #333333;
+		color: #ffffff;
+		padding: 0.12rem 0.3rem;
+		border-radius: 0.3rem;
+		font-size: 0.85rem;
+		left: 100%;
+		transform: translate(-50%, -50%);
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			border-width: 6px;
+			border-style: solid;
+			border-color: transparent transparent #333333 transparent;
+		}
+	}
+}

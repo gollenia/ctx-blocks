@@ -85,5 +85,5 @@
 	},
 	"editorStyle": "ctx-cards-editor-style",
 	"style": "ctx-blocks-style",
-	"viewScript": ["ctx-blocks-frontend"]
+	"viewScript": "file:./view.js"
 }
