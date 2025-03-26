@@ -2,7 +2,11 @@
 
 name: Create Release
 
-on: [workflow_dispatch]
+on:
+    workflow_dispatch:
+        tags:
+            - v*
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     # This workflow contains a single job called "greet"
@@ -28,5 +32,3 @@ jobs:
               uses: ncipollo/release-action@v1.16.0
               with:
                   artifacts: 'ctx-blocks.zip'
-                  generateReleaseNotes: true
-                  token: ${{ secrets.GITHUB_TOKEN }}
