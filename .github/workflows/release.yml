@@ -1,6 +1,6 @@
 # This workflow runs composer and deploys the theme on a server
 
-name: Create Release
+name: Create new Release
 
 on:
     push:
