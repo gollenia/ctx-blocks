@@ -16,13 +16,12 @@ jobs:
                   node-version: '20.x'
             - run: npm ci
             - run: npm run build
-            - run: cat timber-blocks.php | grep -m 1 -Pzo "(\/\*\*)(.|\n)*(\*\/)" >> version.txt
             - uses: thedoctor0/zip-release@0.7.5
               with:
                   type: 'zip'
                   filename: 'ctx-blocks.zip'
                   directory: '../'
-                  path: 'timber-blocks'
+                  path: 'ctx-blocks'
                   exclusions: '*.git* /*node_modules/* .editorconfig src/* .github/* src'
             - run: mv ../ctx-blocks.zip .
             - name: Upload Release
