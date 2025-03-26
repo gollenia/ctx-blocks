@@ -1,6 +1,6 @@
 {
-	"name": "timber-blocks",
-	"version": "1.9.5",
+	"name": "ctx-blocks",
+	"version": "3.1.0",
 	"description": "Wordpress block library plugin to replace some standard blocks",
 	"author": "kids-team Österreich",
 	"prettier": "@wordpress/prettier-config",
@@ -14,13 +14,12 @@
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
-		"@wordpress/icons": "^9.41.0",
-		"colord": "^2.9.3",
-		"minimist": "^1.2.8"
+		"@wordpress/icons": "^10.20.0",
+		"colord": "^2.9.3"
 	},
 	"devDependencies": {
-		"@wordpress/prettier-config": "^1.1.1",
-		"@wordpress/scripts": "^27.1.0"
+		"@wordpress/prettier-config": "^4.20.0",
+		"@wordpress/scripts": "^30.13.0"
 	},
 	"browserslist": [
 		"> 1%",

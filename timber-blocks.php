@@ -2,7 +2,9 @@
 /**
  * Plugin Name:     CTX Blocks 
  * Description:     Additional Blocks for Gutenberg
- * Version:         3.0
+ * Version:         3.1.0
+ * Requires at least: 6.7
+ * Requires PHP:      8.0
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
