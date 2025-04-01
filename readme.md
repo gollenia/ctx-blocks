@@ -1,32 +1,34 @@
 # CTX Blocks
 
-CTX Blocks is a Wordpress Gutenberg Plugin. It includes some new blocks that come in handy fopr generic websites
+CTX Blocks is a Wordpress Gutenberg Plugin. It includes some new blocks that come in handy for generic websites
 
 ### Description
 
-Templating with Timber/Twig is a breeze. I was always disappointed that there are no blocks that can easily be redesigend with a simple template language like twig. Always compiling React (which is great, though!) makes it difficult to change Blocks on the fly or include a block template in a theme.
+CTX Blocks is built to extend the Gutenberg editor with practical, versatile blocks tailored for real-world use. Whether you're building landing pages, internal tools, or dynamic content sections, CTX Blocks equips you with components that are both intuitive for editors and flexible for developers.
 
-Plugins like simple-blocks where not an option for me as they heavily rely on database and is not easily scalable across multiple sites. That's why I wrote this plugin. You can design all your blocks (including core blocks) in the twig language. All block attributes are automatically available als values.
+It is developed with a focus on clean design, mobile responsiveness, and modern frontend practices (TailwindCSS, BEM, React where needed). Most blocks are customizable via block settings and CSS classes, and follow semantic HTML wherever possible.
 
 ### New Blocks
 
-**Grid**: Set a grid layout and decide, how many colums to show on which media size. You can also reorder columns on mobile devices.
+- **Grid** – Create responsive grid layouts with flexible column control for each screen size. Columns can be reordered on smaller devices.
 
-**Card**: Create a card component with many options (lables, badges, shadow, colors, etc.)
+- **Card** – A customizable card component with support for labels, badges, shadows, and color settings.
 
-**Description List**: A list with optional images or icons, captions and a description text
+- **Description List** – A stylish list block with optional icons or images, captions, and descriptions.
 
-**Buttons**: Create buttons that support not only links, but also modals and scripts
+- **Buttons** – A button block that supports links, JavaScript functions, and modal triggers.
 
-**Condition**: conditionally render blocks (currently depending on date/time)
+- **Conditional** – Conditionally display content depending on date and time (more conditions planned).
 
-**Progress**: A progress bar, for donations, statos, whatever
+- **Progress** – A progress bar for donations, project stats, or any other use case.
 
-**SVG**: Insert an SVG graphic
+- **Image** - An alternative image-block that adds more options (round images, shadow, etc)
+
+- **SVG** – Embed SVG graphics directly into the content.
 
 ### Installation
 
-For installation, you will need SSH access to your server and an installed npm environment. Simply run these commands to install the plugin:
+You’ll need SSH access and an installed npm environment. Then run the following commands to clone and build the plugin:
 
 ```sh
 git clone https://github.com/gollenia/ctx-blocks.git
@@ -37,11 +39,20 @@ npm run build
 
 Feel free, of course, to make use of GitHub's actions ;-)
 
-### Legacy notice
-
-As this plugin was once called "ctx-blocks", the internal block names still start with "ctx-blocks/...". This can not be changed, since websites already use these block names.
-
 ### Changelog
+
+##### 3.1.1 
+
+-  Progress Bar fix
+
+##### 3.1
+
+-  NPM Packages Version Dump
+
+##### 3.0
+
+-  Upgraded to Block API 3.0
+-  Image Block reworked
 
 ##### 2.0
 
