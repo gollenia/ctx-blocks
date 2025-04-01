@@ -37,7 +37,7 @@ const registerBlock = (block) => {
 	const { name, settings } = block;
 	registerBlockType(name, settings);
 };
-console.log('svg', inlineSvg);
+
 export const registerBlocks = () => {
 	[
 		button,
