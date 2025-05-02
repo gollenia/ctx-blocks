@@ -19,12 +19,12 @@ jobs:
                   node-version: '20.x'
 
             - name: Install dependencies and build
-              run: | 
+              run: |
                   npm ci
                   npm run build
-          
-           - name: Update plugin.json with new version and URL
-             run: |
+
+            - name: Update plugin.json with new version and URL
+              run: |
                   TAG=${{ github.ref_name }}
                   VERSION=${TAG#v}
                   REPO=${{ github.repository }}
@@ -40,7 +40,7 @@ jobs:
                   filename: '${{ github.event.repository.name }}.zip'
                   directory: '../'
                   path: '${{ github.event.repository.name }}'
-                  exclusions: | 
+                  exclusions: |
                       *.git* 
                       node_modules/
                       src/
