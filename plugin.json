@@ -1,0 +1,16 @@
+{
+	"name": "Contexis Blocks",
+	"slug": "ctx-blocks",
+	"version": "3.1.2",
+	"download_url": "https://github.com/gollenia/ctx-blocks/releases/download/v0.0.0/contexis-forms.zip",
+	"requires": "6.8",
+	"tested": "6.8",
+	"requires_php": "8.4",
+	"author": "Thomas Gollenia",
+	"homepage": "https://github.com/thomasgollenia/contexis-forms",
+	"last_updated": "2025-05-02",
+	"sections": {
+		"description": "Additional blocks for the Gutenberg Block Editor.",
+		"installation": "Simply upload to the plugin directory and activate."
+	}
+}

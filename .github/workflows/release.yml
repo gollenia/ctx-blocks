@@ -1,34 +1,63 @@
-# This workflow runs composer and deploys the theme on a server
-
-name: Create new Release
+name: Build & Release WordPress Plugin
 
 on:
     push:
         tags:
             - '*'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-    # This workflow contains a single job called "greet"
-    deploy:
-        name: Create Release
+    build:
+        name: Create Release Package
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v3
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
               with:
                   node-version: '20.x'
-            - run: npm ci
-            - run: npm run build
-            - uses: thedoctor0/zip-release@0.7.5
+
+            - name: Install dependencies and build
+              run: | 
+                  npm ci
+                  npm run build
+          
+           - name: Update plugin.json with new version and URL
+             run: |
+                  TAG=${{ github.ref_name }}
+                  VERSION=${TAG#v}
+                  REPO=${{ github.repository }}
+                  ZIPNAME=$(basename $REPO).zip
+                  sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" plugin.json
+                  sed -i "s|\"download_url\": \".*\"|\"download_url\": \"https://github.com/$REPO/releases/download/$TAG/$ZIPNAME\"|" plugin.json
+                  sed -i "s/\"last_updated\": \".*\"/\"last_updated\": \"$(date +%F)\"/" plugin.json
+
+            - name: Prepare zip
+              uses: thedoctor0/zip-release@0.7.5
               with:
                   type: 'zip'
-                  filename: 'ctx-blocks.zip'
+                  filename: '${{ github.event.repository.name }}.zip'
                   directory: '../'
-                  path: 'ctx-blocks'
-                  exclusions: '*.git* /*node_modules/* .editorconfig src/* .github/* src'
-            - run: mv ../ctx-blocks.zip .
-            - name: Upload Release
+                  path: '${{ github.event.repository.name }}'
+                  exclusions: | 
+                      *.git* 
+                      node_modules/
+                      src/
+                      .github/
+                      .editorconfig
+                      tests/
+                      .DS_Store
+                      .prettierrc
+                      .eslintrc
+
+            - name: Move zip to workspace
+              run: mv ../${{ github.event.repository.name }}.zip .
+
+            - name: Create GitHub Release
               uses: ncipollo/release-action@v1.16.0
               with:
-                  artifacts: 'ctx-blocks.zip'
+                  artifacts: '${{ github.event.repository.name }}.zip'
+                  tag: ${{ github.ref_name }}
+                  name: Release ${{ github.ref_name }}
+                  generateReleaseNotes: true

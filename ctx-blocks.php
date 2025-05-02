@@ -2,9 +2,9 @@
 /**
  * Plugin Name:     CTX Blocks 
  * Description:     Additional Blocks for Gutenberg
- * Version:         3.1.1
+ * Version:         3.1.2
  * Requires at least: 6.7
- * Requires PHP:      8.0
+ * Requires PHP:      8.4
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -79,6 +79,7 @@ add_action( 'init', 'ctx_block_init' );
 
 
 require_once __DIR__ . '/lib/Posts.php';
+require_once __DIR__ . '/lib/Update.php';
 
 function ctx_blocks_load_textdomain() {
 	load_plugin_textdomain('ctx-blocks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
@@ -101,15 +102,6 @@ function modify_render_block_defaults($block_content, $block, $instance) {
 add_filter( "render_block", "modify_render_block_defaults", 10, 3 );
 
 
-
-
-/**
- * Polyfill wp-block-list class on list blocks
- *
- * Should not be necessary in future version of WP:
- * @see https://github.com/WordPress/gutenberg/issues/12420
- * @see https://github.com/WordPress/gutenberg/pull/42269
- */
 function ctx_add_class_to_list_block( $block_content, $block ) {
 
     if ( 'core/list' === $block['blockName'] ) {
@@ -122,3 +114,9 @@ function ctx_add_class_to_list_block( $block_content, $block ) {
     return $block_content;
 }
 add_filter( 'render_block', 'ctx_add_class_to_list_block', 10, 2 );
+
+new \Contexis\Blocks\Update(
+	__FILE__,
+	'Contexis',
+	'ctx-blocks'
+);
