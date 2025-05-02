@@ -7,22 +7,24 @@ namespace Contexis\Blocks;
 
 class Posts {
 
-	public static function init() {
-		add_filter( 'render_block', [__CLASS__, 'ctx_blocks'], 10, 3 );
+	public static function init() : self {
+		$instance = new self;
+		add_filter( 'render_block', [$instance, 'ctx_blocks'], 10, 3 );
+		return $instance;
 	}
 
-	public static function ctx_blocks( $block_content, $block, $instance ) {
+	public function ctx_blocks( string $block_content, array $block, \WP_Block $instance ) : string {
 
 		switch ( $block['blockName'] ) {
 			case 'core/latest-posts':
-				$block_content = self::ctx_posts( $block_content, $block, $instance );
+				$block_content = $this->ctx_posts( $block );
 				break;
 		}
 
 		return $block_content;
 	}
 
-	public static function ctx_posts( $block_content, $block, $instance ) {
+	public function ctx_posts( array $block ) : string {
 		global $post;
 		$default_attrs = [
 			"displayPostContentRadio" => "excerpt",
