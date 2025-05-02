@@ -1,561 +1,794 @@
-# Copyright (C) 2024 Thomas Gollenia
+# Copyright (C) 2025 Thomas Gollenia
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: CTX Blocks 3.0\n"
+"Project-Id-Version: CTX Blocks 3.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-02-06T09:18:55+00:00\n"
+"POT-Creation-Date: 2025-04-25T16:14:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: ctx-blocks\n"
 
 #. Plugin Name of the plugin
+#: timber-blocks.php
 msgid "CTX Blocks"
 msgstr ""
 
 #. Description of the plugin
+#: timber-blocks.php
 msgid "Additional Blocks for Gutenberg"
 msgstr ""
 
 #. Author of the plugin
+#: timber-blocks.php
 msgid "Thomas Gollenia"
 msgstr ""
 
-#: build/index.js:1
-msgid "Icon"
-msgstr ""
-
-#: build/index.js:1
-msgid "Behaviour"
-msgstr ""
-
-#: build/index.js:1
-msgid "Full screen size"
-msgstr ""
-
-#: build/index.js:1
-msgid "Script"
-msgstr ""
-
-#: build/index.js:1
-msgid "Select a script"
-msgstr ""
-
-#: build/index.js:1
-msgid "Toggle Element"
-msgstr ""
-
-#: build/index.js:1
-msgid "Hide Element"
-msgstr ""
-
-#: build/index.js:1
-msgid "Show Element"
-msgstr ""
-
-#: build/index.js:1
-msgid "Scroll to Element"
-msgstr ""
-
-#: build/index.js:1
-msgid "Element ID"
-msgstr ""
-
-#: build/index.js:1
-msgid "Align icon left"
-msgstr ""
-
-#: build/index.js:1
-msgid "Align icon right"
-msgstr ""
-
-#: build/index.js:1
-msgid "Icon alignment"
-msgstr ""
-
-#: build/index.js:1
-msgid "Link"
-msgstr ""
-
-#: build/index.js:1
-msgid "Hide text"
-msgstr ""
-
-#: build/index.js:1
+#: build/index.js:449
+#: build/index.js:315
 msgid "Button title"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:470
+#: build/index.js:343
 msgid "Edit Modal content"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:482
+#: build/index.js:356
 msgid "Modal title"
 msgstr ""
 
-#: build/index.js:1
-msgid "Deprecated - Please use Groups instead"
+#: build/index.js:670
+#: build/index.js:674
+#: build/index.js:2437
+#: build/index.js:460
+#: build/index.js:463
+#: build/index.js:2001
+msgid "Icon"
 msgstr ""
 
-#: build/index.js:1
-msgid "Accent Color"
+#: build/index.js:684
+#: build/index.js:2417
+#: build/index.js:4324
+#: build/index.js:472
+#: build/index.js:1983
+#: build/index.js:3447
+msgid "Behaviour"
 msgstr ""
 
-#: build/index.js:1
-msgid "Appearance"
+#: build/index.js:698
+#: build/index.js:854
+#: build/index.js:1737
+#: build/index.js:2420
+#: build/index.js:2651
+#: build/index.js:4482
+#: build/index.js:5877
+#: build/index.js:485
+#: build/index.js:638
+#: build/index.js:1474
+#: build/index.js:1987
+#: build/index.js:2214
+#: build/index.js:3588
+#: build/index.js:4856
+msgid "Link"
 msgstr ""
 
-#: build/index.js:1
-msgid "Shadow"
+#: build/index.js:711
+#: build/index.js:503
+msgid "Modal"
 msgstr ""
 
-#: build/index.js:1
-msgid "Full Height"
+#: build/index.js:723
+#: build/index.js:736
+#: build/index.js:514
+#: build/index.js:533
+msgid "Script"
 msgstr ""
 
-#: build/index.js:1
-msgid "Label Text"
+#: build/index.js:728
+#: build/index.js:521
+msgid "Full screen size"
 msgstr ""
 
-#: build/index.js:1
-msgid "Badge Text"
+#: build/index.js:739
+#: build/index.js:537
+msgid "Select a script"
 msgstr ""
 
-#: build/index.js:1
-msgid "Image"
+#: build/index.js:742
+#: build/index.js:544
+msgid "Toggle Element"
 msgstr ""
 
-#: build/index.js:1
-msgid "Replace"
+#: build/index.js:745
+#: build/index.js:551
+msgid "Hide Element"
 msgstr ""
 
-#: build/index.js:1
-msgid "Add Media"
+#: build/index.js:748
+#: build/index.js:555
+msgid "Show Element"
 msgstr ""
 
-#: build/index.js:1
-msgid "Remove Media"
+#: build/index.js:751
+#: build/index.js:559
+msgid "Scroll to Element"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:760
+#: build/index.js:572
+msgid "Element ID"
+msgstr ""
+
+#: build/index.js:843
+#: build/index.js:623
+msgid "Align icon left"
+msgstr ""
+
+#: build/index.js:847
+#: build/index.js:628
+msgid "Align icon right"
+msgstr ""
+
+#: build/index.js:850
+#: build/index.js:632
+msgid "Icon alignment"
+msgstr ""
+
+#: build/index.js:859
+#: build/index.js:646
+msgid "Hide text"
+msgstr ""
+
+#: build/index.js:1233
+#: build/index.js:1000
 msgid "Title"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:1237
+#: build/index.js:1008
 msgid "Subtitle"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:1241
+#: build/index.js:1016
 msgid "Your content goes here..."
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:1453
+#: build/index.js:1201
+msgid "Accent Color"
+msgstr ""
+
+#: build/index.js:1462
+#: build/index.js:1212
+msgid "Hover Color"
+msgstr ""
+
+#: build/index.js:1479
+#: build/index.js:2871
+#: build/index.js:3634
+#: build/index.js:1232
+#: build/index.js:2340
+#: build/index.js:2846
+msgid "Appearance"
+msgstr ""
+
+#: build/index.js:1482
+#: build/index.js:4250
+#: build/index.js:1236
+#: build/index.js:3364
+msgid "Shadow"
+msgstr ""
+
+#: build/index.js:1490
+#: build/index.js:1244
+msgid "Full Height"
+msgstr ""
+
+#: build/index.js:1498
+#: build/index.js:1252
+msgid "Label Text"
+msgstr ""
+
+#: build/index.js:1506
+#: build/index.js:1260
+msgid "Badge Text"
+msgstr ""
+
+#: build/index.js:1515
+#: build/index.js:2433
+#: build/index.js:5304
+#: build/index.js:1269
+#: build/index.js:1998
+#: build/index.js:4328
+msgid "Image"
+msgstr ""
+
+#: build/index.js:1723
+#: build/index.js:2637
+#: build/index.js:4468
+#: build/index.js:1454
+#: build/index.js:2194
+#: build/index.js:3567
+msgid "Add Media"
+msgstr ""
+
+#: build/index.js:1723
+#: build/index.js:2637
+#: build/index.js:4468
+#: build/index.js:5873
+#: build/index.js:1455
+#: build/index.js:2195
+#: build/index.js:3568
+#: build/index.js:4849
+msgid "Replace"
+msgstr ""
+
+#: build/index.js:1726
+#: build/index.js:2640
+#: build/index.js:4471
+#: build/index.js:1461
+#: build/index.js:2201
+#: build/index.js:3574
+msgid "Remove Media"
+msgstr ""
+
+#: build/index.js:2041
+#: build/index.js:1682
+msgid "Device Visibility"
+msgstr ""
+
+#: build/index.js:2044
+#: build/index.js:1686
+msgid "Hide on mobile"
+msgstr ""
+
+#: build/index.js:2050
+#: build/index.js:1693
+msgid "Hide on desktop"
+msgstr ""
+
+#: build/index.js:2057
+#: build/index.js:1700
 msgid "Date"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2071
+#: build/index.js:1709
 msgid "Hide"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2083
+#: build/index.js:1719
 msgid "Show"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2088
+#: build/index.js:1725
 msgid "From"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2095
+#: build/index.js:1731
 msgid "To"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2104
+#: build/index.js:1739
 msgid "Access Control"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2107
+#: build/index.js:1743
 msgid "Show only to logged in users"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2113
+#: build/index.js:1751
 msgid "Show login notice"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2120
+#: build/index.js:1761
 msgid "Login notice"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2126
+#: build/index.js:1768
 msgid "Include login form"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2426
+#: build/index.js:1992
 msgid "Icon for Link"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2449
+#: build/index.js:2012
 msgid "Icon Background"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2465
+#: build/index.js:2034
 msgid "Icon Color"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:2875
+#: build/index.js:2345
 msgid "Lines as separators"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3165
+#: build/index.js:2483
 msgid "Mobile appearance"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3169
+#: build/index.js:2488
 msgid "Column span on mobile devices"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3179
+#: build/index.js:2495
 msgid "Columns span on tablets and small displays"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3189
+#: build/index.js:2502
 msgid "Column span on Desktops"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3199
+#: build/index.js:2510
 msgid "Position on mobile devices"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3202
+#: build/index.js:2513
 msgid "In place"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3205
+#: build/index.js:2514
 msgid "Start"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3208
+#: build/index.js:2515
 msgid "End"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3637
+#: build/index.js:2850
 msgid "Columns on mobile devices"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3647
+#: build/index.js:2857
 msgid "Columns on tablets and medium screens"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3657
+#: build/index.js:2864
 msgid "Columns on desktops"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3667
+#: build/index.js:2872
 msgid "Make all columns same height"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:3675
+#: build/index.js:2877
 msgid "Separate columns with borders"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4238
+#: build/index.js:3353
 msgid "Design"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4241
+#: build/index.js:3355
 msgid "Width in percent"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4258
+#: build/index.js:3371
 msgid "Flip vertical"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4266
+#: build/index.js:3379
 msgid "Flip horizontal"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4274
+#: build/index.js:3387
 msgid "Rotate"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4282
+#: build/index.js:3395
 msgid "Image size"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4289
+#: build/index.js:3404
 msgid "Aspect Ratio"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4292
+#: build/index.js:3408
 msgid "Original"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4295
+#: build/index.js:3412
 msgid "16:9 (Wide)"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4298
+#: build/index.js:3416
 msgid "1:1 (Portrait)"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4301
+#: build/index.js:3420
 msgid "21:9 (Extra Wide)"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4304
+#: build/index.js:3424
 msgid "9:16 (Upright)"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4327
+#: build/index.js:3449
 msgid "Zoom in on hover"
 msgstr ""
 
-#: build/index.js:1
-msgid "Action"
-msgstr ""
-
-#: build/index.js:1
-msgid "Lightbox"
-msgstr ""
-
-#: build/index.js:1
-msgid "Add a URL or a link"
-msgstr ""
-
-#: build/index.js:1
-msgid "Click here"
-msgstr ""
-
-#: build/index.js:1
-msgid "Values"
-msgstr ""
-
-#: build/index.js:1
-msgid "Max value"
-msgstr ""
-
-#: build/index.js:1
-msgid "Current value"
-msgstr ""
-
-#: build/index.js:1
-msgid "Labels"
-msgstr ""
-
-#: build/index.js:1
-msgid "Show Values"
-msgstr ""
-
-#: build/index.js:1
-msgid "Separate Thousands"
-msgstr ""
-
-#: build/index.js:1
-msgid "Decimal places"
-msgstr ""
-
-#: build/index.js:1
-msgid "Unit"
-msgstr ""
-
-#: build/index.js:1
-msgid "Show unit before Value"
-msgstr ""
-
-#: build/index.js:1
-msgid "Bar"
-msgstr ""
-
-#: build/index.js:1
-msgid "Bar type"
-msgstr ""
-
-#: build/index.js:1
-msgid "Normal"
-msgstr ""
-
-#: build/index.js:1
-msgid "Gradient (experimental)"
-msgstr ""
-
-#: build/index.js:1
-msgid "Stripes"
-msgstr ""
-
-#: build/index.js:1
-msgid "Bar Label"
-msgstr ""
-
-#: build/index.js:1
-msgid "None"
-msgstr ""
-
-#: build/index.js:1
-msgid "Percentage"
-msgstr ""
-
-#: build/index.js:1
-msgid "Value"
-msgstr ""
-
-#: build/index.js:1
-msgid "Both"
-msgstr ""
-
-#: build/index.js:1
-msgid "Animate"
-msgstr ""
-
-#: build/index.js:1
-msgid "Colors"
-msgstr ""
-
-#: build/index.js:1
-msgid "Color for low values"
-msgstr ""
-
-#: build/index.js:1
-msgid "Color for medium values"
-msgstr ""
-
-#: build/index.js:1
+#: build/index.js:4635
+#: build/index.js:3720
 msgid "Current value description..."
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4652
+#: build/index.js:3741
 msgid "Max value description..."
 msgstr ""
 
-#: build/index.js:1
-msgid "Background Color"
+#: build/index.js:4825
+#: build/index.js:3855
+msgid "Values"
 msgstr ""
 
-#: build/index.js:1
-msgid "Background Image"
+#: build/index.js:4828
+#: build/index.js:3859
+msgid "Max value"
 msgstr ""
 
-#: build/index.js:1
-msgid "Select image"
+#: build/index.js:4834
+#: build/index.js:3866
+msgid "Current value"
 msgstr ""
 
-#: build/index.js:1
-msgid "No image loaded"
+#: build/index.js:4841
+#: build/index.js:3874
+msgid "Labels"
 msgstr ""
 
-#: build/index.js:1
-msgid "Replace image"
+#: build/index.js:4845
+#: build/index.js:3879
+msgid "Show Values"
 msgstr ""
 
-#: build/index.js:1
-msgid "Remove image"
+#: build/index.js:4853
+#: build/index.js:3889
+msgid "Separate Thousands"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:4861
+#: build/index.js:3905
+msgid "Decimal places"
+msgstr ""
+
+#: build/index.js:4873
+#: build/index.js:3918
+msgid "Unit"
+msgstr ""
+
+#: build/index.js:4882
+#: build/index.js:3930
+msgid "Show unit before Value"
+msgstr ""
+
+#: build/index.js:4891
+#: build/index.js:3944
+msgid "Bar"
+msgstr ""
+
+#: build/index.js:4894
+#: build/index.js:3948
+msgid "Bar type"
+msgstr ""
+
+#: build/index.js:4897
+#: build/index.js:3951
+msgid "Normal"
+msgstr ""
+
+#: build/index.js:4900
+#: build/index.js:3953
+msgid "Gradient (experimental)"
+msgstr ""
+
+#: build/index.js:4903
+#: build/index.js:3960
+msgid "Stripes"
+msgstr ""
+
+#: build/index.js:4910
+#: build/index.js:3969
+msgid "Bar Label"
+msgstr ""
+
+#: build/index.js:4913
+#: build/index.js:6182
+#: build/index.js:3972
+#: build/index.js:5090
+msgid "None"
+msgstr ""
+
+#: build/index.js:4916
+#: build/index.js:3974
+msgid "Percentage"
+msgstr ""
+
+#: build/index.js:4919
+#: build/index.js:3978
+msgid "Value"
+msgstr ""
+
+#: build/index.js:4922
+#: build/index.js:3982
+msgid "Both"
+msgstr ""
+
+#: build/index.js:4929
+#: build/index.js:3991
+msgid "Animate"
+msgstr ""
+
+#: build/index.js:4939
+#: build/index.js:5289
+#: build/index.js:4001
+#: build/index.js:4309
+msgid "Colors"
+msgstr ""
+
+#: build/index.js:4941
+#: build/index.js:4004
+msgid "Color for low values"
+msgstr ""
+
+#: build/index.js:4946
+#: build/index.js:4010
+msgid "Color for medium values"
+msgstr ""
+
+#: build/index.js:5142
+#: build/index.js:5145
+#: build/index.js:4206
+#: build/index.js:4211
 msgid "Switch to Group or Cover block"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5145
+#: build/index.js:4213
 msgid "Hidden"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5148
+#: build/index.js:4219
 msgid "Section"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5148
+#: build/index.js:4221
 msgid "Visible"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5290
+#: build/index.js:4310
+msgid "Background Color"
+msgstr ""
+
+#: build/index.js:5297
+#: build/index.js:4320
+msgid "Background Image"
+msgstr ""
+
+#: build/index.js:5316
+#: build/index.js:4341
+msgid "Select image"
+msgstr ""
+
+#: build/index.js:5322
+#: build/index.js:4353
+msgid "No image loaded"
+msgstr ""
+
+#: build/index.js:5327
+#: build/index.js:4363
+msgid "Replace image"
+msgstr ""
+
+#: build/index.js:5334
+#: build/index.js:4378
+msgid "Remove image"
+msgstr ""
+
+#: build/index.js:5713
+#: build/index.js:4689
 msgid "Image Size"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5716
+#: build/index.js:4693
+msgid "Sync Height"
+msgstr ""
+
+#: build/index.js:5722
+#: build/index.js:4699
+msgid "Size in Percent"
+msgstr ""
+
+#: build/index.js:5738
+#: build/index.js:4711
 msgid "Width"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5753
+#: build/index.js:4723
 msgid "Height"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5763
+#: build/index.js:4734
 msgid "Image Manipulation"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5766
+#: build/index.js:4738
 msgid "Stroke Width"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5774
+#: build/index.js:4747
 msgid "Color settings"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5777
+#: build/index.js:4751
 msgid "Stroke color"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5784
+#: build/index.js:4759
 msgid "Fill color"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:5849
+#: build/index.js:4817
+msgid "Image Alignment"
+msgstr ""
+
+#: build/index.js:5850
+#: build/index.js:4818
+msgid "Change image alignment"
+msgstr ""
+
+#: build/index.js:5853
+#: build/index.js:4822
+msgid "Align left"
+msgstr ""
+
+#: build/index.js:5857
+#: build/index.js:4827
+msgid "Align center"
+msgstr ""
+
+#: build/index.js:5861
+#: build/index.js:4832
+msgid "Align right"
+msgstr ""
+
+#: build/index.js:5873
+#: build/index.js:4848
 msgid "Add SVG"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6080
+#: build/index.js:5009
 msgid "Justify text"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6167
+#: build/index.js:5075
 msgid "Animation"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6170
+#: build/index.js:5079
 msgid "Animate on scroll"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6179
+#: build/index.js:5087
 msgid "Select Animation"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6185
+#: build/index.js:5092
 msgid "Fade In"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6188
+#: build/index.js:5096
 msgid "Fade In Up"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6191
+#: build/index.js:5100
 msgid "Fade In Down"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6194
+#: build/index.js:5104
 msgid "Fade In Left"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6197
+#: build/index.js:5108
 msgid "Fade In Right"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6200
+#: build/index.js:5112
 msgid "Flip In X"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6203
+#: build/index.js:5116
 msgid "Flip In Y"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6206
+#: build/index.js:5120
 msgid "Zoom In"
 msgstr ""
 
-#: build/index.js:1
+#: build/index.js:6209
+#: build/index.js:5124
 msgid "Bounce in In"
+msgstr ""
+
+#: build/index.js:6308
+#: build/index.js:5215
+msgid "Auto Height"
+msgstr ""
+
+#: build/index.js:6311
+#: build/index.js:5219
+msgid "Use as auto height control in a flex container"
 msgstr ""
 
 #: build/blocks/button/block.json
@@ -779,7 +1012,7 @@ msgstr ""
 
 #: build/blocks/svg/block.json
 msgctxt "block title"
-msgid "Inline SVG"
+msgid "Vector Graphic"
 msgstr ""
 
 #: build/blocks/svg/block.json
@@ -804,5 +1037,5 @@ msgstr ""
 
 #: build/blocks/svg/block.json
 msgctxt "block description"
-msgid "Inject an SVG file into the page."
+msgid "Instead of an image tag, this block includes a vector graphic directly into HTML. This allowes better scaling and styling."
 msgstr ""
