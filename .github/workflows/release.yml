@@ -41,15 +41,15 @@ jobs:
                   directory: '../'
                   path: '${{ github.event.repository.name }}'
                   exclusions: |
-                      *.git* 
-                      node_modules/
-                      src/
-                      .github/
-                      .editorconfig
-                      tests/
-                      .DS_Store
-                      .prettierrc
-                      .eslintrc
+                      **/.git*
+                      **/node_modules/**
+                      **/src/**
+                      **/.github/**
+                      **/.editorconfig
+                      **/tests/**
+                      **/.DS_Store
+                      **/.prettierrc
+                      **/.eslintrc
 
             - name: Move zip to workspace
               run: mv ../${{ github.event.repository.name }}.zip .

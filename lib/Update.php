@@ -21,77 +21,75 @@ class Update {
 
         add_filter('site_transient_update_plugins', [$this, 'check_for_update']);
         add_filter('plugins_api', [$this, 'plugin_info'], 10, 3);
+		register_activation_hook(__FILE__, function() { delete_transient('ghup_' . md5(...)); });
     }
 
-    private function get_latest_release() : ?object {
-
+    private function get_latest_version() : string {
         $cache_key = 'ghup_' . md5($this->repo_owner . '/' . $this->repo_name);
         $cached = get_transient($cache_key);
+		if ($cached) return $cached;
+		
+        $response = wp_remote_get("https://github.com/$this->repo_owner/$this->repo_name/releases/latest", [
+			'redirection' => 0,
+			'timeout'     => 5,
+		]);
 
-        if ($cached) return $cached;
-
-        $response = wp_remote_get("https://api.github.com/repos/{$this->repo_owner}/{$this->repo_name}/releases/latest", [
-            'timeout' => 5,
-            'headers' => [
-                'Accept' => 'application/vnd.github.v3+json',
-                'User-Agent' => 'WordPress-Updater'
-            ]
-        ]);
-
-        if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
-            return null;
+		if (is_wp_error($response) || !isset($response['headers']['location'])) {
+            return get_plugin_data($this->plugin_file)['Version'];
         }
-
-        $body = json_decode(wp_remote_retrieve_body($response));
-        set_transient($cache_key, $body, HOUR_IN_SECONDS);
-
-        return $body;
+		$location = $response['headers']['location'];
+		if (preg_match('~/tag/(v?\d+\.\d+\.\d+)~', $location, $matches)) {
+			$latest_version = ltrim($matches[1], 'v');
+		}
+        set_transient($cache_key, $latest_version, HOUR_IN_SECONDS);
+		
+        return $latest_version;
     }
 
     public function check_for_update($transient) {
-        if (empty($transient->checked[$this->plugin_slug])) {
-            return $transient;
-        }
-
-        $release = $this->get_latest_release();
-        if (!$release) return $transient;
-
-        $remote_version = ltrim($release->tag_name, 'v');
+		if(!is_object($transient) || !isset($transient->checked)) return $transient;
+		if (!array_key_exists($this->plugin_slug, (array) $transient->checked)) return $transient;
+		
+        $new_version = $this->get_latest_version();
         $current_version = $transient->checked[$this->plugin_slug];
 
-        if (version_compare($remote_version, $current_version, '>')) {
-            $plugin_data = get_plugin_data($this->plugin_file);
+        if (!version_compare($new_version, $current_version, '>')) return $transient;
+		$plugin_data = get_plugin_data($this->plugin_file);
 
-            $transient->response[$this->plugin_slug] = (object)[
-                'slug' => dirname($this->plugin_slug),
-                'plugin' => $this->plugin_slug,
-                'new_version' => $remote_version,
-                'url' => $plugin_data['PluginURI'],
-                'package' => $release->zipball_url,
-            ];
-        }
+		$transient->response[$this->plugin_slug] = (object)[
+			'slug' => dirname($this->plugin_slug),
+			'plugin' => $this->plugin_slug,
+			'new_version' => $new_version,
+			'url' => $plugin_data['PluginURI'],
+			'package' => "https://github.com/{$this->repo_owner}/{$this->repo_name}/releases/download/v{$new_version}/{$this->repo_name}.zip",
+			'requires' => $plugin_data['RequiresWP'],
+			'tested' => $plugin_data['Tested'],
+			'last_updated' => $plugin_data['LastUpdated'],
+			'requires_php' => $plugin_data['RequiresPHP'],
+		];
 
         return $transient;
     }
 
-    public function plugin_info($res, $action, $args) {
+    public function plugin_info($res, string $action, object $args) {
+
         if ($action !== 'plugin_information' || $args->slug !== dirname($this->plugin_slug)) {
             return $res;
         }
 
-        $release = $this->get_latest_release();
+        $release = $this->get_latest_version();
         if (!$release) return $res;
 
         $info = new \stdClass();
         $info->name = basename(dirname($this->plugin_file));
         $info->slug = dirname($this->plugin_slug);
-        $info->version = ltrim($release->tag_name, 'v');
+        $info->version = ltrim($release);
         $info->author = 'Thomas Gollenia';
         $info->homepage = "https://github.com/{$this->repo_owner}/{$this->repo_name}";
-        $info->download_link = $release->zipball_url;
+        $info->download_link = "https://github.com/{$this->repo_owner}/{$this->repo_name}/archive/refs/tags/{$release}.zip";
         $info->sections = [
-            'description' => $release->body ?? '',
-            'changelog' => $release->body ?? '',
+            'description' => file_get_contents(dirname($this->plugin_file) . '/readme.md'),
+			'changelog' => 'See changelog on <a href="https://github.com/'.$this->repo_owner.'/'.$this->repo_name.'/releases">GitHub</a>'
         ];
 
         return $info;

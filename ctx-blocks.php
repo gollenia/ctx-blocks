@@ -117,6 +117,6 @@ add_filter( 'render_block', 'ctx_add_class_to_list_block', 10, 2 );
 
 new \Contexis\Blocks\Update(
 	__FILE__,
-	'Contexis',
+	'gollenia',
 	'ctx-blocks'
 );
