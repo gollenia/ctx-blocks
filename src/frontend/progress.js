@@ -1,33 +1,30 @@
 const Progress = {
-	progressBars: false,
+	progressBars: [],
 
 	init(className) {
-		let progressBars = document.getElementsByClassName(className);
-		this.progressBars = progressBars;
-		if (progressBars) {
-			for (let index = 0; index < progressBars.length; index++) {
-				this.add(progressBars[index]);
-			}
-			return progressBars;
-		}
-		return false;
-	},
+		this.progressBars = Array.from(
+			document.getElementsByClassName(className)
+		);
+		if (this.progressBars.length === 0) return false;
 
-	add(progressBar) {
-		window.addEventListener('scroll', () => this.update(progressBar));
-		window.addEventListener('resize', () => this.update(progressBar));
-		this.update(progressBar);
+		window.addEventListener('scroll', () => this.updateAll());
+		window.addEventListener('resize', () => this.updateAll());
+		this.updateAll();
+
+		return this.progressBars;
 	},
 
 	animate(progressBar, duration) {
-		if (this.animating) return;
-		this.animating = true;
-		const max = progressBar.dataset.max;
-		let current = progressBar.dataset.current;
-		
+		if (progressBar.dataset.animating === 'true') return;
+
+		progressBar.dataset.animating = 'true';
+
+		const max = Number(progressBar.dataset.max);
+		const current = Number(progressBar.dataset.current);
+
 		const percentValue =
 			current > max ? 100 : Math.round((current * 100) / max);
-		
+
 		const barValue = percentValue > 100 ? 100 : percentValue;
 
 		let steps = (duration / 1000) * 50;
@@ -53,30 +50,33 @@ const Progress = {
 			currentValueLabel.innerHTML = countValue;
 			indicator.style.width = `${barValue * factor}%`;
 			percentLabel.innerHTML = `${Math.round(percentValue * factor)}%`;
-			if (step == steps) {
+			if (step === steps) {
 				clearInterval(timer);
+				progressBar.classList.remove('ctx-progress--animating');
+				progressBar.dataset.animating = 'false';
 			}
 		}, 20);
+	},
 
-		if (step === steps) {
-			clearInterval(timer);
-			progressBar.classList.remove('ctx-progress--animating');
-		}
+	updateAll() {
+		this.progressBars.forEach((progressBar) => {
+			this.update(progressBar);
+		});
 	},
 
 	update(progressBar) {
 		let position = progressBar.getBoundingClientRect();
-
 		let isLoaded = progressBar.classList.contains('ctx-progress--loaded');
+
 		if (position.top >= 0 && position.bottom <= window.innerHeight) {
 			if (!isLoaded) {
-				progressBar.style.width = '{{percent}}%';
 				progressBar.classList.add('ctx-progress--loaded');
-				Progress.animate(progressBar, 3000);
+				this.animate(progressBar, 3000);
 			}
-			return;
+		} else {
+			progressBar.classList.remove('ctx-progress--loaded');
+			progressBar.dataset.animating = 'false';
 		}
-		progressBar.classList.remove('ctx-progress--loaded');
 	},
 };
 

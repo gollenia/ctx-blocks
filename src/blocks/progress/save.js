@@ -7,6 +7,7 @@ const save = (props) => {
 		maxValue,
 		currentValue,
 		unit,
+		animate,
 		prefixedUnit,
 		currentDescription,
 		maxDescription,
@@ -14,6 +15,7 @@ const save = (props) => {
 		thousandSeparators,
 		colorBar,
 		colorBarBackground,
+		showValues,
 	} = attributes;
 
 	const classes = [
@@ -73,8 +75,15 @@ const save = (props) => {
 						'background-color',
 						colorBar
 					)}`}
+					style={{
+						width: animate ? null : `${percent}%`,
+					}}
 				>
-					<span class="ctx-progress__percent">{fullPercent}%</span>
+					{showValues && (
+						<span class="ctx-progress__percent">
+							{fullPercent}%
+						</span>
+					)}
 				</div>
 			</div>
 		</div>
