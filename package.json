@@ -1,6 +1,6 @@
 {
   "name": "ctx-blocks",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "Wordpress block library plugin to replace some standard blocks",
   "author": "kids-team Österreich",
   "prettier": "@wordpress/prettier-config",
