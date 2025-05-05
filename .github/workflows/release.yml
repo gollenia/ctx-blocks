@@ -25,7 +25,7 @@ jobs:
             
             - name: Clean up files
                   run: |
-                  rm -rf node_modules src .git .github tests .DS_Store .prettierrc .eslintrc .editorconfig package-lock.json package.json webpack.config.js tsconfig.json
+                     rm -rf node_modules src .git .github tests .DS_Store .prettierrc .eslintrc .editorconfig package-lock.json package.json webpack.config.js tsconfig.json
 
             - name: Prepare zip
               uses: thedoctor0/zip-release@0.7.5

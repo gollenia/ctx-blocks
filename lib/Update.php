@@ -27,6 +27,12 @@ class Update {
     private function get_latest_version() : string {
         $cache_key = 'ghup_' . md5($this->repo_owner . '/' . $this->repo_name);
         $cached = get_transient($cache_key);
+		
+		if (is_admin() && strpos($_SERVER['REQUEST_URI'], 'plugins.php')) {
+			delete_transient($cache_key);
+			$cached = false;
+		}
+		
 		if ($cached) return $cached;
 		
         $response = wp_remote_get("https://github.com/$this->repo_owner/$this->repo_name/releases/latest", [
