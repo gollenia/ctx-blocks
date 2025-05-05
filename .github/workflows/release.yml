@@ -23,16 +23,6 @@ jobs:
                   npm ci
                   npm run build
 
-            - name: Update plugin.json with new version and URL
-              run: |
-                  TAG=${{ github.ref_name }}
-                  VERSION=${TAG#v}
-                  REPO=${{ github.repository }}
-                  ZIPNAME=$(basename $REPO).zip
-                  sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" plugin.json
-                  sed -i "s|\"download_url\": \".*\"|\"download_url\": \"https://github.com/$REPO/releases/download/$TAG/$ZIPNAME\"|" plugin.json
-                  sed -i "s/\"last_updated\": \".*\"/\"last_updated\": \"$(date +%F)\"/" plugin.json
-
             - name: Prepare zip
               uses: thedoctor0/zip-release@0.7.5
               with:
