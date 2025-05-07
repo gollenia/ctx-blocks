@@ -1,4 +1,4 @@
-name: Build & Release WordPress Plugin
+name: Build & Release
 
 on:
     push:
@@ -6,51 +6,7 @@ on:
             - '*'
 
 jobs:
-    build:
-        name: Create Release Package
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: '20.x'
-
-            - name: Install dependencies and build
-              run: |
-                  npm ci
-                  npm run build
-
-            - name: Clean up files
-              run: rm -rf node_modules src .git .github tests .DS_Store .prettierrc .eslintrc .editorconfig package-lock.json package.json webpack.config.js tsconfig.json
-
-            - name: Prepare zip
-              uses: thedoctor0/zip-release@0.7.5
-              with:
-                  type: 'zip'
-                  filename: '${{ github.event.repository.name }}.zip'
-                  directory: '../'
-                  path: '${{ github.event.repository.name }}'
-                  exclusions: |
-                      **/.git*
-                      **/node_modules/**
-                      **/src/**
-                      **/.github/**
-                      **/.editorconfig
-                      **/tests/**
-                      **/.DS_Store
-                      **/.prettierrc
-                      **/.eslintrc
-
-            - name: Move zip to workspace
-              run: mv ../${{ github.event.repository.name }}.zip .
-
-            - name: Create GitHub Release
-              uses: ncipollo/release-action@v1.16.0
-              with:
-                  artifacts: '${{ github.event.repository.name }}.zip'
-                  tag: ${{ github.ref_name }}
-                  name: Release ${{ github.ref_name }}
-                  generateReleaseNotes: true
+    release:
+        uses: gollenia/github-actions/.github/workflows/wordpress-release.yml@main
+        with:
+            tag: ${{ github.ref_name }}
