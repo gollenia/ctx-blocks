@@ -89,14 +89,14 @@ class Posts {
 					$image_classes .= ' align' . $attributes['featuredImageAlign'];
 				}
 	
-				$featured_image = get_the_post_thumbnail(
+				$featured_image = key_exists('featuredImageSizeSlug', $attributes) ? get_the_post_thumbnail(
 					$post,
 					$attributes['featuredImageSizeSlug'],
 					array(
 						'style' => esc_attr( $image_style ),
 					)
-				);
-				if ( $attributes['addLinkToFeaturedImage'] ) {
+				) : '';
+				if ( key_exists('addLinkToFeaturedImage', $attributes) ) {
 					$featured_image = sprintf(
 						'<a href="%1$s" aria-label="%2$s">%3$s</a>',
 						esc_url( $post_link ),
