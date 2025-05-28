@@ -28,9 +28,9 @@ $css = "#svg-{$uid} svg path {" . implode(' ', $rules) . "}";
 $unit = $attributes['sizeInPercent'] ? '%' : 'px';
 
 $tag = $attributes['linkUrl'] ? 'a' : 'div';
-$style = "width: {$attributes['width']}{$unit}; height: {$attributes['height']}{$unit}; display: flex; justify-content: {$attributes['imageAlignment']};";
+$style = "width: auto; display: flex; justify-content: {$attributes['imageAlignment']};";
 $block_attributes = get_block_wrapper_attributes(['class' => 'ctx-svg-wrapper ' . $uid, 'style' => $style]);
-
+$inner_style = "width: {$attributes['width']}{$unit}; height: {$attributes['height']}{$unit}; ";
 ?>
 
 <?php if($attributes['linkUrl']) : ?>
@@ -44,5 +44,5 @@ $block_attributes = get_block_wrapper_attributes(['class' => 'ctx-svg-wrapper ' 
 			stroke: <?php echo $attributes['strokeColor'] ?>;
 		}
 	</style>
-	<div><?php echo file_get_contents($path); ?></div>
+	<div style="<?php echo $inner_style ?>"><?php echo file_get_contents($path); ?></div>
 <?php echo $attributes['linkUrl'] ? "</a>" : "</div>";

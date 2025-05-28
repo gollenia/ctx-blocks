@@ -2,9 +2,9 @@
 /**
  * Plugin Name:     CTX Blocks 
  * Description:     Additional Blocks for Gutenberg
- * Version:         3.1.8
+ * Version:         3.1.9
  * Requires at least: 6.7
- * Requires PHP:      8.4
+ * Requires PHP:      8.3
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,6 +12,8 @@
  *
  * @package         create-block
  */
+
+use Contexis\Blocks\Update;
 
 /**
  * New Block registration making use of the new block.json format.
@@ -77,7 +79,6 @@ function ctx_block_init() {
 
 add_action( 'init', 'ctx_block_init' );
 
-
 require_once __DIR__ . '/lib/Posts.php';
 require_once __DIR__ . '/lib/Update.php';
 
@@ -89,7 +90,7 @@ add_action( 'plugins_loaded', 'ctx_blocks_load_textdomain' );
 
 
 function modify_render_block_defaults($block_content, $block, $instance) {
-	if($block['blockName'] !== "core/latest-posts" || !$block['attrs']['animateOnScroll']) {
+	if($block['blockName'] !== "core/latest-posts" || !key_exists('animateOnScroll', $block['attrs'])) {
 		return $block_content;
 	}
 	
@@ -115,7 +116,7 @@ function ctx_add_class_to_list_block( $block_content, $block ) {
 }
 add_filter( 'render_block', 'ctx_add_class_to_list_block', 10, 2 );
 
-new \Contexis\Blocks\Update(
+new Update(
 	__FILE__,
 	'gollenia',
 	'ctx-blocks'
