@@ -88,5 +88,8 @@
 		"ctx-blocks/card",
 		"ctx-blocks/grid-column"
 	],
-	"render": "file:./render.php"
+	"render": "file:./render.php",
+	"editorStyle": "file:./editor.css",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
