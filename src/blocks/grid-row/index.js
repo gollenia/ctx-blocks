@@ -1,3 +1,4 @@
+import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
 import edit from './edit';
 import './editor.scss';
@@ -19,4 +20,4 @@ const settings = {
 	transforms,
 };
 
-export { name, settings };
+registerBlockType(name, settings);

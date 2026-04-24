@@ -8,6 +8,7 @@ import edit from './edit';
 import './editor.scss';
 import icon from './icon';
 import './style.scss';
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Wordpress dependencies
@@ -24,4 +25,4 @@ const settings = {
 	},
 };
 
-export { name, settings };
+registerBlockType(name, settings);

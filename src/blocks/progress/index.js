@@ -1,6 +1,7 @@
 /**
  * Internal dependencies
  */
+import { register } from '@wordpress/data';
 import metadata from './block.json';
 import edit from './edit';
 import './editor.scss';
@@ -11,6 +12,7 @@ import save from './save';
  * Wordpress dependencies
  */
 import { withColors } from '@wordpress/block-editor';
+import { registerBlockType } from '@wordpress/blocks';
 
 const { name, title, description } = metadata;
 
@@ -23,4 +25,4 @@ const settings = {
 	save,
 };
 
-export { name, settings };
+registerBlockType(name, settings);

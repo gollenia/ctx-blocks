@@ -28,6 +28,7 @@
 			"allowSizingOnChildren": true
 		}
 	},
-	"editorStyle": "wp-block-descriptiopn-list-editor",
-	"style": "ctx-blocks-style"
+	"editorStyle": "file:./editor.css",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

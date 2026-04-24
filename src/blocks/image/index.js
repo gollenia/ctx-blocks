@@ -1,6 +1,7 @@
 /**
  * Internal dependencies
  */
+import { register } from '@wordpress/data';
 import metadata from './block.json';
 import deprecated from './deprecated';
 import edit from './edit';
@@ -14,6 +15,7 @@ import transforms from './transforms';
  * Wordpress dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { registerBlockType } from '@wordpress/blocks';
 
 const { name, title, description } = metadata;
 
@@ -28,4 +30,4 @@ const settings = {
 	deprecated,
 };
 
-export { name, settings };
+registerBlockType(name, settings);

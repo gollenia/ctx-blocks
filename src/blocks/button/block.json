@@ -127,9 +127,9 @@
 			"action": "link"
 		}
 	},
-	"editorStyle": "ctx-blocks-editor-style",
-	"editorScript": "ctx-blocks-editor",
-	"style": "ctx-blocks-style",
-	"viewScript": "ctx-blocks-frontend",
+	"editorStyle": "file:./editor.css",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
 	"render": "file:./render.php"
 }

@@ -56,6 +56,7 @@
 			"allowSizingOnChildren": true
 		}
 	},
-	"style": "ctx-blocks-style",
-	"editorStyle": "wp-block-ctx-blocks-grid-row-editor"
+	"editorStyle": "file:./editor.css",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

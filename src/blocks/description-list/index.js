@@ -1,6 +1,7 @@
 /**
  * Internal dependencies
  */
+import { registerBlockType } from '@wordpress/blocks';
 import metadata from './block.json';
 import edit from './edit';
 import './editor.scss';
@@ -19,4 +20,4 @@ const settings = {
 	save,
 };
 
-export { name, settings };
+registerBlockType(name, settings);

@@ -83,7 +83,8 @@
 			"padding": true
 		}
 	},
-	"editorStyle": "ctx-cards-editor-style",
-	"style": "ctx-blocks-style",
+	"editorStyle": "file:./editor.css",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js"
 }

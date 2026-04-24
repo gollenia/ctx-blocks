@@ -14,6 +14,7 @@ import './style.scss';
  */
 import { withColors } from '@wordpress/block-editor';
 import transforms from './transforms';
+import { registerBlockType } from '@wordpress/blocks';
 
 const { name } = metadata;
 
@@ -28,4 +29,4 @@ const settings = {
 	save: Save,
 };
 
-export { name, settings };
+registerBlockType(name, settings);

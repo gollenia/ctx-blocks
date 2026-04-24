@@ -26,5 +26,7 @@
 		}
 	},
 	"parent": ["ctx-blocks/grid-row"],
-	"style": "ctx-blocks-style"
+	"editorStyle": "file:./editor.css",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

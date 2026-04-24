@@ -1,0 +1,8 @@
+{
+	"name": "ctx-blocks",
+	"main": "index.js",
+	"module": "index.js",
+	"wpScriptModuleExports": {
+    ".": "./index.js"
+  }
+}
