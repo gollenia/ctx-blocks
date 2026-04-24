@@ -6,9 +6,14 @@
   "prettier": "@wordpress/prettier-config",
   "license": "GPL-2.0-or-later",
   "main": "build/index.js",
+  "wpPlugin": {
+		"name": "ctx-blocks",
+		"packageNamespace": "ctx-blocks",
+		"handlePrefix": "ctx"
+  },
   "scripts": {
-    "build": "wp-scripts build src/index.js src/frontend.js",
-    "start": "wp-scripts start ./src/index.js ./src/frontend.js",
+    "build": "wp-scripts build packages/scrollAnimate/scrollAnimate.js packages/blockMods/blockMods.js",
+    "start": "wp-scripts start",
     "make-pot": "wp i18n make-pot . languages/ctx-blocks.pot --slug=ctx-blocks --domain=ctx-blocks --exclude=node_modules,src",
     "make-json": "wp i18n make-json languages/ --no-purge",
     "packages-update": "wp-scripts packages-update",
@@ -19,9 +24,17 @@
     "colord": "^2.9.3"
   },
   "devDependencies": {
-    "@wordpress/prettier-config": "^4.20.0",
-    "@wordpress/scripts": "^30.13.0",
-    "wp-github-plugin": "^1.0.0"
+    "@wordpress/scripts": "^32.0.0",
+    "wp-github-plugin": "^1.0.0",
+	"@biomejs/biome": "2.4.4",
+	"@playwright/test": "^1.58.2",
+	"@types/wordpress__block-editor": "^15.0.6",
+	"@types/wordpress__blocks": "^15.10.0",
+	"@types/wordpress__core-data": "^2.4.5",
+	"@types/wordpress__data": "^6.0.2",
+	"@types/wordpress__editor": "^14.3.1",
+	"@wordpress/interactivity": "^6.40.0",
+	"@wordpress/build": "^0.12.0"
   },
   "browserslist": [
     "> 1%",
