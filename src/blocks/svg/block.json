@@ -89,7 +89,7 @@
 		"ctx-blocks/grid-column"
 	],
 	"render": "file:./render.php",
-	"editorStyle": "file:./editor.css",
+	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"
 }

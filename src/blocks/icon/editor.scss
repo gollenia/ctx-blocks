@@ -1,0 +1,27 @@
+.ctx-icon-block {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: inherit;
+	line-height: 0;
+
+	&__icon {
+		inline-size: 100%;
+		block-size: 100%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			inline-size: 100%;
+			block-size: 100%;
+			display: block;
+		}
+
+		svg,
+		svg * {
+			fill: currentColor;
+			stroke: currentColor;
+		}
+	}
+}

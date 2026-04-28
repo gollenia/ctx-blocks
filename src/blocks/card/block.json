@@ -132,7 +132,7 @@
 		"root": ".wp-block-ctx-blocks-card",
 		"spacing": ".wp-block ctx-card .ctx-card-content"
 	},
-	"editorStyle": "file:./editor.css",
+	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"
 }

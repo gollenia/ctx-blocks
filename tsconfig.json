@@ -23,5 +23,5 @@
 		"erasableSyntaxOnly": true,
 		"noErrorTruncation": false
 	},
-	"include": ["src/**/*", "globals.d.ts"]
+	"include": ["src/**/*", "packages/**/*", "globals.d.ts"]
 }

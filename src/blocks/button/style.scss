@@ -15,9 +15,29 @@
 		color: currentColor;
 	}
 
-	i.material-icons {
+	.ctx-icon {
 		line-height: 0;
+		display: inline-flex;
+		align-items: center;
+		inline-size: 1.25rem;
+		block-size: 1.25rem;
 		font-weight: 400 !important;
+		font-style: normal;
+		flex-shrink: 0;
+
+		img,
+		svg {
+			inline-size: 100%;
+			block-size: 100%;
+			display: block;
+		}
+
+		svg,
+		svg * {
+			fill: currentColor;
+			stroke: currentColor;
+			font-weight: 400 !important;
+		}
 	}
 }
 

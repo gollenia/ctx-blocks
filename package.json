@@ -12,7 +12,7 @@
 		"handlePrefix": "ctx"
   },
   "scripts": {
-    "build": "wp-scripts build packages/scrollAnimate/scrollAnimate.js packages/blockMods/blockMods.js",
+    "build": "wp-scripts build",
     "start": "wp-scripts start",
     "make-pot": "wp i18n make-pot . languages/ctx-blocks.pot --slug=ctx-blocks --domain=ctx-blocks --exclude=node_modules,src",
     "make-json": "wp i18n make-json languages/ --no-purge",

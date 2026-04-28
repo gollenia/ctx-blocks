@@ -19,7 +19,7 @@ echo "<div class='button-container'>";
 echo '<' . join(" ", [$tag, $href, $block_attributes, $button_id, $target]) . '>';
 
 if($attributes['icon']) {
-	echo "<i class=\"material-icons material-symbols-outlined\">{$attributes['icon']}</i>";
+		echo \Contexis\Blocks\Icons::render_icon( $attributes['icon'] );
 } 
 if(!$attributes['iconOnly']) {
 	echo "{$attributes['title']}";

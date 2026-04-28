@@ -28,9 +28,90 @@
 		flex-direction: row-reverse;
 	}
 
-	i.material-icons {
+	.ctx-icon {
 		line-height: 0;
+		display: inline-flex;
+		align-items: center;
+		inline-size: 1.25rem;
+		block-size: 1.25rem;
+		font-weight: 400 !important;
+		font-style: normal;
+		flex-shrink: 0;
+
+		svg {
+			inline-size: 100%;
+			block-size: 100%;
+			display: block;
+		}
+
+		svg,
+		svg * {
+			fill: currentColor;
+			stroke: currentColor;
+			font-weight: 400 !important;
+		}
 	}
+}
+
+.ctx-icon-selector {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 0.75rem;
+	align-items: center;
+	width: 100%;
+}
+
+.ctx-icon-selector__preview {
+	min-width: 2.5rem;
+	min-height: 2.5rem;
+	display: grid;
+	place-items: center;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.ctx-icon-selector__icon {
+	inline-size: 1.5rem;
+	block-size: 1.5rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	svg {
+		inline-size: 100%;
+		block-size: 100%;
+		display: block;
+	}
+}
+
+.ctx-icon-selector__item {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+	min-width: 0;
+}
+
+.ctx-icon-selector__item-icon {
+	inline-size: 1.25rem;
+	block-size: 1.25rem;
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	svg {
+		inline-size: 100%;
+		block-size: 100%;
+		display: block;
+	}
+}
+
+.ctx-icon-selector__item-label {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 // Ugly Hack to limit URL input width.

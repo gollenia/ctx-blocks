@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ctx-blocks/icon",
+	"title": "Icon",
+	"category": "widgets",
+	"keywords": ["icon", "svg", "symbol"],
+	"textdomain": "ctx-blocks",
+	"description": "Display a theme-overridable inline SVG icon.",
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": ""
+		},
+		"size": {
+			"type": "number",
+			"default": 24
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"newTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"rel": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"color": {
+			"text": true,
+			"background": false,
+			"gradients": false
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"render": "file:./render.php",
+	"editorStyle": "file:./index.css",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

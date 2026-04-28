@@ -94,7 +94,8 @@
 		"color": ".wp-block-ctx-blocks-description-item .ctx__description-item-image",
 		"border": ".wp-block-ctx-blocks-description-item .ctx__description-item-image"
 	},
-	"editorStyle": "file:./editor.css",
+	"render": "file:./render.php",
+	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"
 }

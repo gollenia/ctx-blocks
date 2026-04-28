@@ -105,7 +105,7 @@
 			}
 		}
 	},
-	"editorStyle": "file:./editor.css",
+	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"
 }

@@ -50,7 +50,7 @@
 		}
 	},
 	"parent": ["core/navigation", "core/group"],
-	"editorStyle": "file:./editor.css",
+	"editorStyle": "file:./index.css",
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"
 }
